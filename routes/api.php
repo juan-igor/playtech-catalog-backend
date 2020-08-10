@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth',
@@ -26,4 +21,26 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+});
+
+// Routes with authentication
+Route::middleware('auth:api')->group(function() {
+    Route::apiResource('products', 'ProductController');
+});
+
+// Routes without authentication
+Route::get('products', 'ProductController@index');
+Route::get('products/list', 'ProductController@list');
+Route::get('products/{id}', 'ProductController@show');
+
+// Storage routes
+Route::prefix('storage')->group(function () {
+    Route::middleware(['auth:api'])->group(function () {
+        Route::post('upload', 'StorageController@upload')->name('storage.upload');
+        Route::post('update/{hash}', 'StorageController@update')->name('storage.update');
+    });
+
+    // Routes to view storage file
+    Route::get('view/{id}', 'StorageController@view')->name('storage.view');
+    Route::get('download/{id}', 'StorageController@download')->name('storage.download');
 });
