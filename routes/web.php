@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return response()->json([
+        'application' => 'Playtech Solutions - Catálogo de Vendas',
+        'version' => '0.1',
+    ]);
 });
+
+// Auth::routes(['verify' => true]);
