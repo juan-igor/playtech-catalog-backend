@@ -1,0 +1,46 @@
+# v2 syntax
+version: '2'
+
+# Named volumes
+volumes:
+  # Postgres Data
+  playtech-catalog-db-data:
+    driver: local
+
+services:
+  # Postgres (10.3)
+  postgres:
+    image: postgres:10.3
+    restart: always
+    container_name: playtech-catalog-db
+    volumes:
+      - playtech-catalog-db-data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_PASSWORD=playtech
+      - POSTGRES_DB=playtech
+      - POSTGRES_USER=playtech
+  # PHP (with Nginx)
+  # you can change from nginx to apache, just change session 'image'
+  app:
+    image: ambientum/php:7.4-nginx
+    restart: always
+    container_name: playtech-catalog-backend
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "8085:8080"
+    links:
+      - postgres
+  pgadmin:
+    container_name: playtech-catalog-pgadmin-pgsql   
+    restart: always
+    image: dpage/pgadmin4:latest
+    ports:
+      - "8086:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=juan.igorbdf@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=juan2010
+    links:
+      - postgres
