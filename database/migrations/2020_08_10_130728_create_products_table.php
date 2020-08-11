@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
-            $table->enum('size', ['P', 'M', 'G', 'GG']);
+            $table->string('available_size');
             $table->float('value');
             $table->timestamps();
         });
