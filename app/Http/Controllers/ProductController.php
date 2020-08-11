@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
@@ -55,6 +57,9 @@ class ProductController extends Controller
         try {
             DB::beginTransaction();
 
+            $validation = Validator::make($request->all(), Product::RULE_CREATE, Product::CUSTOM_ERROR_MESSAGES, Product::CUSTOM_ATTRIBUTE_NAMES);
+            $validation->validate();
+
             $infos = $request->all();
 
             $infos['available_size'] = $this->getStringFromArray($infos['available_size']);
@@ -75,10 +80,19 @@ class ProductController extends Controller
         } catch (\Exception $ex) {
             DB::rollBack();
 
+            if($ex instanceof ValidationException){
+                return response()->json([
+                    'success' => false,
+                    'exception_type' => 'validation',
+                    'message' => 'Os dados informados não são totalmente válidos.',
+                    'validation_errors' => $validation->errors()
+                ]);
+            }
+
             return response()->json([
                 'success' => false,
                 'message' => $this->exceptionMessage($ex),
-                'trace' => $this->exceptionTrace($ex)
+                'trace' => $this->exceptionTrace($ex),
             ]);
         }
     }
@@ -96,12 +110,13 @@ class ProductController extends Controller
         try {
             DB::beginTransaction();
 
-            $infos = $request->all();
+            $validation = Validator::make($request->all(), Product::RULE_UPDATE, Product::CUSTOM_ERROR_MESSAGES, Product::CUSTOM_ATTRIBUTE_NAMES);
+            $validation->validate();
 
+            $infos = $request->all();
             if(!empty($infos['available_size'])) $infos['available_size'] = $this->getStringFromArray($infos['available_size']);
 
             $product = Product::find($id)->update($infos);
-
             if(!empty($infos['images'])) $product->storages()->sync($infos['images']);
 
             if ($product) {
@@ -116,6 +131,15 @@ class ProductController extends Controller
             throw new \Exception(__('O produto não pôde ser atualizado.'));
         } catch (\Exception $ex) {
             DB::rollBack();
+
+            if($ex instanceof ValidationException){
+                return response()->json([
+                    'success' => false,
+                    'exception_type' => 'validation',
+                    'message' => 'Os dados informados não são totalmente válidos.',
+                    'validation_errors' => $validation->errors()
+                ]);
+            }
 
             return response()->json([
                 'success' => false,
