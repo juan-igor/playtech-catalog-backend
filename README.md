@@ -1,61 +1,86 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="https://yata-apix-46560647-f90c-4f2e-888e-7ecb5d1a1d15.lss.locawebcorp.com.br/ffcca5037b6d40ea93a555aaea56b629.png" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# Sobre
 
-## About Laravel
+Este é um projeto simples que servirá como backend para um site que exibirá um catálogo de uma loja de roupas.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Iniciando o projeto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+A seguir é descrito as informações necessárias para executar o projeto.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Pré-requisitos
 
-## Learning Laravel
+Para rodar a aplicação, você precisa ter instalado na sua máquina o [Docker](https://www.docker.com/), com versão igual ou superior a essas:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Docker: version 18.03.1-ce
+- Docker compose: version 1.21.2
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Além de que as portas **8085** e **5435** não deverão está em uso no momento que os containeires forem ligados.
 
-## Laravel Sponsors
+## Executando
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Com o Docker instalado na sua máquina, clone o projeto.
+Acesse a pasta do projeto via terminal:
 
-### Premium Partners
+```
+cd playtech-catalog-backend/
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+### **NO LINUX**
 
-## Contributing
+Conceda permissão de execução para o script que irá iniciar os containers, criar o banco e dar migrate nas tabelas:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+sudo chmod +x ./docker-run.sh
+```
 
-## Code of Conduct
+Finalmente, execute o script:
+```
+./docker-run.sh
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### **NO WINDOWS**
 
-## Security Vulnerabilities
+Execute o script pelo PowerShell:
+```
+.\docker-run.ps1
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Pronto! O projeto já deve está funcionando no [http://localhost:8085/](http://localhost:8085/).
 
-## License
+Depois de instalado, você pode iniciar os containers da seguinte forma:
+```
+docker-compose up -d
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+E para parar os containers:
+```
+docker-compose stop
+```
+
+# Built with
+
+- [Laravel 7 (Framework PHP)](https://laravel.com/)
+- [PostgreSQL 10.3](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
+
+## Docker Images Utilizadas
+
+- [Ambientum - PHP 7.4 with NGINX](https://hub.docker.com/r/ambientum/php)
+- [Postgres 10.3](https://hub.docker.com/_/postgres)
+- [PGAdmin 4](https://hub.docker.com/r/dpage/pgadmin4/)
+
+# Autores
+
+**Playtech Solutions**
+- [Twitter](https://twitter.com/playtsoficial12)
+- [Instagram](https://www.instagram.com/playtechsolutions12/)
+- [LinkedIn](https://www.linkedin.com/company/playtechgames7/)
+- E-mail: contato@playtechsolutions.com.br
+
+## Desenvolvedor
+
+**Juan Igor Barbosa (Back-end Dev)**
+- [Github](https://github.com/juan-igor/)
+- [Gitlab](https://gitlab.com/juan_igor)
+- E-mail: juan.igorbdf@gmail.com
