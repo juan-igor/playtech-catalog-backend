@@ -45,4 +45,42 @@ class Controller extends BaseController
 
         return $response;
     }
+
+    /**
+     * Get formatted string from array
+     * 
+     * @param array $array
+     * @param string $delimitter Array item delimitter
+     * 
+     * @return string
+     */
+    public function getStringFromArray($array, $delimitter = ",")
+    {
+        $string_return = "";
+
+        foreach($array as $item){
+            $string_return .= $item . $delimitter;
+        }
+
+        return substr($string_return, 0, -1);
+    }
+
+    /**
+     * Get an array from a formatted string
+     * 
+     * @param string $string
+     * @param string $delimitter Item delimitter in string
+     * 
+     * @return array
+     */
+    public function getArrayFromString($string, $delimitter = ",")
+    {
+        $result = explode($delimitter, $string);
+
+        foreach($result as $index => $item){
+            $result[$index] = trim($item);
+        }
+
+        return $result;
+    }
 }
