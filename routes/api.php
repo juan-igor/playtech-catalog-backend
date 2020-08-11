@@ -23,6 +23,10 @@ Route::group([
     Route::post('me', 'AuthController@me');
 });
 
+// Routes without authentication
+Route::get('products/list', 'ProductController@list');
+Route::get('products/{id}', 'ProductController@show');
+
 // Routes with authentication
 Route::middleware('auth:api')->group(function() {
     Route::apiResource('products', 'ProductController');
@@ -30,17 +34,16 @@ Route::middleware('auth:api')->group(function() {
 
 // Routes without authentication
 Route::get('products', 'ProductController@index');
-Route::get('products/list', 'ProductController@list');
-Route::get('products/{id}', 'ProductController@show');
 
 // Storage routes
 Route::prefix('storage')->group(function () {
     Route::middleware(['auth:api'])->group(function () {
         Route::post('upload', 'StorageController@upload')->name('storage.upload');
         Route::post('update/{hash}', 'StorageController@update')->name('storage.update');
+        Route::delete('delete/{hash}', 'StorageController@delete')->name('storage.delete');
     });
 
     // Routes to view storage file
-    Route::get('view/{id}', 'StorageController@view')->name('storage.view');
-    Route::get('download/{id}', 'StorageController@download')->name('storage.download');
+    Route::get('view/{hash}', 'StorageController@view')->name('storage.view');
+    Route::get('download/{hash}', 'StorageController@download')->name('storage.download');
 });
