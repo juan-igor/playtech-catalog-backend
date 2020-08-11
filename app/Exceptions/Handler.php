@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Error;
 use Illuminate\Http\Response;
 use Illuminate\Auth\AuthenticationException;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
@@ -110,13 +111,24 @@ class Handler extends ExceptionHandler
     protected function prepareJsonResponse($request, Throwable $exception)
     {
         if ($exception instanceof ValidationException) {
+            $message = method_exists($exception, 'getMessageBag') ? $exception->getMessageBag() : $exception->getMessage();
+
+            return response()->json([
+                'success' => false,
+                'exception' => $this->getExceptionClass($exception),
+                'message' => $message
+            ]);
+        }
+
+        if($exception instanceof Error) {
             return response()->json([
                 'success' => false,
                 'error' => [
-                    'exception' => $this->getExceptionClass($exception),
-                    'message' => $exception->getMessageBag(),
+                    'exception_class' => $this->getExceptionClass($exception),
+                    'message' => $exception->getMessage(),
+                    'trace' => $this->getTrace($exception),
                 ],
-            ], 400);
+            ]);
         }
 
         $exception = FlattenException::create($exception);
@@ -132,9 +144,8 @@ class Handler extends ExceptionHandler
 
         return response()->json([
             'success' => false,
-
             'error' => [
-                'exception' => $this->getExceptionClass($exception),
+                'exception_class' => $this->getExceptionClass($exception),
                 'http_code' => $exception->getStatusCode(),
                 'message' => $message,
                 'trace' => $this->getTrace($exception),
