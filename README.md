@@ -6,6 +6,10 @@
 
 Este é um projeto simples que servirá como backend para um site que exibirá um catálogo de uma loja de roupas.
 
+### Requisições Existentes na API
+
+Para visualizar todas as requisições disponíveis na API acesse este link:  **[Documentação do Postman](https://documenter.getpostman.com/view/8080983/T1LLFoiu)**.
+
 ## Iniciando o projeto
 
 A seguir é descrito as informações necessárias para executar o projeto.
