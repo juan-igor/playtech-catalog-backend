@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return response()->json(Product::with('storages')->paginate(self::PER_PAGE));
+        return response()->json(Product::with('storages:storages.storage_id')->paginate(self::PER_PAGE));
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
     public function list()
     {
-        return response()->json(Product::with('storages')->get());
+        return response()->json(Product::with('storages:storages.storage_id')->get());
     }
 
     /**
@@ -40,7 +40,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return response()->json(Product::find($id));
+        return response()->json(Product::with('storages:storages.storage_id')->find($id));
     }
 
     /**
@@ -55,7 +55,12 @@ class ProductController extends Controller
         try {
             DB::beginTransaction();
 
-            $product = Product::create($request->all());
+            $infos = $request->all();
+
+            $infos['available_size'] = $this->getStringFromArray($infos['available_size']);
+
+            $product = Product::create($infos);
+            $product->storages()->attach($infos['images']);
 
             if ($product) {
                 DB::commit();
@@ -91,7 +96,13 @@ class ProductController extends Controller
         try {
             DB::beginTransaction();
 
-            $product = Product::find($id)->update($request->all());
+            $infos = $request->all();
+
+            if(!empty($infos['available_size'])) $infos['available_size'] = $this->getStringFromArray($infos['available_size']);
+
+            $product = Product::find($id)->update($infos);
+
+            if(!empty($infos['images'])) $product->storages()->sync($infos['images']);
 
             if ($product) {
                 DB::commit();
@@ -121,12 +132,27 @@ class ProductController extends Controller
      * 
      * @return JsonResponse
      */
-    public function delete($id)
+    public function destroy($id)
     {
         try {
             DB::beginTransaction();
 
-            $product = Product::find($id)->delete();
+            $product = Product::find($id);
+
+            if($product !== null){
+                $storages = $product->storages()->get();
+
+                foreach($storages as $storage){
+                    $storage->delete();
+                }
+
+                $product = $product->delete();
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Produto de ID '.$id.' não existe.'
+                ]);
+            }
 
             if ($product) {
                 DB::commit();
