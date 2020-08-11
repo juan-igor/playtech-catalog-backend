@@ -14,4 +14,6 @@ class Storage extends Model
      * @var array
      */
     protected $fillable = ['filename', 'path', 'storage_id', 'extension', 'file_type'];
+
+    protected $hidden = ['pivot'];
 }

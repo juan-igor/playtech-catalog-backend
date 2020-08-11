@@ -12,10 +12,12 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'type', 'size', 'value', 
+        'name', 'type', 'available_size', 'value', 
     ];
 
+    protected $hidden = ['pivot'];
+
     public function storages(){
-        return $this->belongsToMany(Storage::class, 'product_storages', 'product_id', 'storage_id');
+        return $this->belongsToMany(Storage::class, 'product_storages', 'product_id', 'storage_id', null, 'storage_id');
     }
 }
