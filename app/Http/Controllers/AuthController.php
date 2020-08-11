@@ -33,7 +33,10 @@ class AuthController extends Controller
             return $this->respondWithToken($token);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json([
+            'success' => false,
+            'message' => 'Acesso não autorizado.'
+        ], 401);
     }
 
     /**
@@ -55,7 +58,10 @@ class AuthController extends Controller
     {
         $this->guard()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json([
+            'success' => true,
+            'message' => 'Você foi deslogado.'
+        ]);
     }
 
     /**
@@ -78,6 +84,8 @@ class AuthController extends Controller
     protected function respondWithToken($token)
     {
         return response()->json([
+            'success' => true,
+            'message' => 'Credenciais validadas. Token de acesso gerado.',
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => $this->guard()->factory()->getTTL() * 60
