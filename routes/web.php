@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@welcome');
+Route::get('/', 'HomeController@welcome')->name('welcome');
+Route::get('/catalogo', 'HomeController@catalog')->name('catalog');
 
 Auth::routes();
 
@@ -52,8 +53,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+	Route::get('perfil', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+	Route::put('perfil', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+	Route::put('perfil/senha', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
 
