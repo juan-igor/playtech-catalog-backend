@@ -11,7 +11,17 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['welcome']]);
+        $this->middleware('auth', ['except' => ['welcome', 'catalog']]);
+    }
+
+    public function welcome()
+    {
+        return view('welcome');
+    }
+
+    public function catalog()
+    {
+        return view('catalog');
     }
 
     /**
@@ -22,10 +32,5 @@ class HomeController extends Controller
     public function index()
     {
         return view('dashboard');
-    }
-
-    public function welcome()
-    {
-        return view('welcome');
     }
 }
