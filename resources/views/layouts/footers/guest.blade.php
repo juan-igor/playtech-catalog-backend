@@ -1,35 +1,57 @@
 <footer class="footer">
     <div class="container">
-        <nav class="float-left">
-        <ul>
-            <li>
-            <a href="https://www.creative-tim.com">
-                {{ __('Creative Tim') }}
-            </a>
-            </li>
-            <li>
-            <a href="https://creative-tim.com/presentation">
-                {{ __('About Us') }}
-            </a>
-            </li>
-            <li>
-            <a href="http://blog.creative-tim.com">
-                {{ __('Blog') }}
-            </a>
-            </li>
-            <li>
-            <a href="https://www.creative-tim.com/license">
-                {{ __('Licenses') }}
-            </a>
-            </li>
-        </ul>
+        <nav id="footer-left" class="float-left">
+            <ul class="footer-link-list">
+                <li>
+                    <a href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+                        <i class="fab fa-instagram"></i>&nbsp;
+                        Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://facebook.com/male.version.store" target="_blank">
+                        <i class="fab fa-facebook"></i>&nbsp;
+                        Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/5585999185618" target="_blank">&nbsp;
+                        <i class="fab fa-whatsapp"></i>
+                        Whatsapp 1
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/5585999187190" target="_blank">&nbsp;
+                        <i class="fab fa-whatsapp"></i>
+                        Whatsapp 2
+                    </a>
+                </li>
+            </ul>
         </nav>
-        <div class="copyright float-right">
-        &copy;
-        <script>
-            document.write(new Date().getFullYear())
-        </script>, made with <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> and <a href="https://www.updivision.com" target="_blank">UPDIVISION</a> for a better web.
+        <div id="footer-right" class="copyright float-right">
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>, Male Version Store. Feito por
+            <a class="playtech-ref-link" href="https://playtechsolutions.com.br/" target="_blank">Playtech Solutions</a>
         </div>
     </div>
 </footer>
+
+@push('js')
+<script>
+    if(window.innerWidth < 1200){
+        document.getElementById('footer-left').classList.remove('float-left');
+        document.getElementById('footer-right').classList.remove('float-right');
+    }
+</script>
+@endpush
+@push('windowOnResize')
+    if(window.innerWidth < 1200){
+        document.getElementById('footer-left').classList.remove('float-left');
+        document.getElementById('footer-right').classList.remove('float-right');
+    } else{
+        document.getElementById('footer-left').classList.add('float-left');
+        document.getElementById('footer-right').classList.add('float-right');
+    }
+@endpush
