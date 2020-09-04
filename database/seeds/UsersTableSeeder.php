@@ -15,7 +15,10 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Playtech ADM',
             'email' => 'playtech@playtechsolutions.com.br',
+            'email_verified_at' => now(),
             'password' => bcrypt('playtech@password'),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
     }
 }
