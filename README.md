@@ -21,7 +21,7 @@ Para rodar a aplicação, você precisa ter instalado na sua máquina o [Docker]
 - Docker: version 18.03.1-ce
 - Docker compose: version 1.21.2
 
-Além de que as portas **8085** e **5435** não deverão está em uso no momento que os containeires forem ligados.
+Além de que as portas **8085**, **8086** e **5435** não deverão está em uso no momento que os containeires forem ligados.
 
 ### Executando
 
@@ -47,7 +47,12 @@ Finalmente, execute o script:
 
 #### **NO WINDOWS**
 
-Execute o script pelo PowerShell:
+Abra o PowerShell como administrador e execute o comando:
+```
+Set-ExecutionPolicy -ExecutionPolicy Bypass
+```
+
+Execute o script pelo PowerShell no diretório do projeto:
 ```
 .\docker-run.ps1
 ```
@@ -86,7 +91,7 @@ docker-compose stop
 
 ### Desenvolvedor
 
-**Juan Igor Barbosa (Back-end Dev)**
+**Juan Igor Barbosa**
 - [Github](https://github.com/juan-igor/)
 - [Gitlab](https://gitlab.com/juan_igor)
 - E-mail: juan.igorbdf@gmail.com
