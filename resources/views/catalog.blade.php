@@ -10,15 +10,126 @@
   <div class="row justify-content-center align-items-center">
     <div class="col">
       <div class="card mx-auto product-card">
-        <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product1.jpg" alt="Imagem do Produto">
+        <div class="row justify-content-center align-items-center product-image-div">
+          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product1.jpg" alt="Imagem do Produto">
+        </div>
         <div class="card-body product-card-body">
           <h3 class="card-title">Short Moletom</h3>
-          <p class="card-text">Short Moletom com conforto e qualidade.</p>
-          <p class="card-text product-price">R$ 25,00</p>
+          <p class="card-text">Short moletom com conforto e qualidade.</p>
+          <p class="card-text">Tamanhos P e M.</p>
+          <p class="card-text product-price">R$ 20,00</p>
           <div class="card-button w-100 text-center">
-            <button class="btn btn-primary btn-round product-buy-button">
-              <i class="material-icons">shopping_cart</i> Peça já
-            </button>
+            <a class="btn btn-primary btn-round product-buy-button" href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+              <i class="fa fa-instagram"></i>&nbsp;&nbsp; Faça seu Pedido
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mx-auto product-card">
+        <div class="row justify-content-center align-items-center product-image-div">
+          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product2.jpg" alt="Imagem do Produto">
+        </div>
+        <div class="card-body product-card-body">
+          <h3 class="card-title">Short Moletom</h3>
+          <p class="card-text">Short moletom com conforto e qualidade.</p>
+          <p class="card-text">Tamanhos P e M.</p>
+          <p class="card-text product-price">R$ 20,00</p>
+          <div class="card-button w-100 text-center">
+            <a class="btn btn-primary btn-round product-buy-button" href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+              <i class="fa fa-instagram"></i>&nbsp;&nbsp; Faça seu Pedido
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mx-auto product-card">
+        <div class="row justify-content-center align-items-center product-image-div">
+          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product3.jpg" alt="Imagem do Produto">
+        </div>
+        <div class="card-body product-card-body">
+          <h3 class="card-title">Short Moletom</h3>
+          <p class="card-text">Short moletom com conforto e qualidade.</p>
+          <p class="card-text">Tamanhos P e M.</p>
+          <p class="card-text product-price">R$ 20,00</p>
+          <div class="card-button w-100 text-center">
+            <a class="btn btn-primary btn-round product-buy-button" href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+              <i class="fa fa-instagram"></i>&nbsp;&nbsp; Faça seu Pedido
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mx-auto product-card">
+        <div class="row justify-content-center align-items-center product-image-div">
+          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product4.jpg" alt="Imagem do Produto">
+        </div>
+        <div class="card-body product-card-body">
+          <h3 class="card-title">Short Moletom</h3>
+          <p class="card-text">Short moletom com conforto e qualidade.</p>
+          <p class="card-text">Tamanhos P e M.</p>
+          <p class="card-text product-price">R$ 20,00</p>
+          <div class="card-button w-100 text-center">
+            <a class="btn btn-primary btn-round product-buy-button" href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+              <i class="fa fa-instagram"></i>&nbsp;&nbsp; Faça seu Pedido
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mx-auto product-card">
+        <div class="row justify-content-center align-items-center product-image-div">
+          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product5.jpg" alt="Imagem do Produto">
+        </div>
+        <div class="card-body product-card-body">
+          <h3 class="card-title">Short Moletom</h3>
+          <p class="card-text">Short moletom com conforto e qualidade.</p>
+          <p class="card-text">Tamanhos P e M.</p>
+          <p class="card-text product-price">R$ 20,00</p>
+          <div class="card-button w-100 text-center">
+            <a class="btn btn-primary btn-round product-buy-button" href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+              <i class="fa fa-instagram"></i>&nbsp;&nbsp; Faça seu Pedido
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mx-auto product-card">
+        <div class="row justify-content-center align-items-center product-image-div">
+          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product6.jpg" alt="Imagem do Produto">
+        </div>
+        <div class="card-body product-card-body">
+          <h3 class="card-title">Short Moletom</h3>
+          <p class="card-text">Short moletom com conforto e qualidade.</p>
+          <p class="card-text">Tamanhos P e M.</p>
+          <p class="card-text product-price">R$ 20,00</p>
+          <div class="card-button w-100 text-center">
+            <a class="btn btn-primary btn-round product-buy-button" href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+              <i class="fa fa-instagram"></i>&nbsp;&nbsp; Faça seu Pedido
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mx-auto product-card">
+        <div class="row justify-content-center align-items-center product-image-div">
+          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product7.jpg" alt="Imagem do Produto">
+        </div>
+        <div class="card-body product-card-body">
+          <h3 class="card-title">Blusas</h3>
+          <p class="card-text">Blusas para o cotidiano ou saídas básicas</p>
+          <p class="card-text">Todos os tamanhos.</p>
+          <p class="card-text product-price">R$ 29,90</p>
+          <div class="card-button w-100 text-center">
+            <a class="btn btn-primary btn-round product-buy-button" href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+              <i class="fa fa-instagram"></i>&nbsp;&nbsp; Faça seu Pedido
+            </a>
           </div>
         </div>
       </div>

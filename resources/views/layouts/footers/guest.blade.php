@@ -3,25 +3,25 @@
         <nav id="footer-left" class="float-left">
             <ul class="footer-link-list">
                 <li>
-                    <a href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
+                    <a class="footer-link" href="https://www.instagram.com/male_version_store_oficial/" target="_blank">
                         <i class="fab fa-instagram"></i>&nbsp;
                         Instagram
                     </a>
                 </li>
                 <li>
-                    <a href="https://facebook.com/male.version.store" target="_blank">
+                    <a class="footer-link" href="https://facebook.com/male.version.store" target="_blank">
                         <i class="fab fa-facebook"></i>&nbsp;
                         Facebook
                     </a>
                 </li>
                 <li>
-                    <a href="https://wa.me/5585999185618" target="_blank">&nbsp;
+                    <a class="footer-link" href="https://wa.me/5585999185618" target="_blank">&nbsp;
                         <i class="fab fa-whatsapp"></i>
                         Whatsapp 1
                     </a>
                 </li>
                 <li>
-                    <a href="https://wa.me/5585999187190" target="_blank">&nbsp;
+                    <a class="footer-link" href="https://wa.me/5585999187190" target="_blank">&nbsp;
                         <i class="fab fa-whatsapp"></i>
                         Whatsapp 2
                     </a>
@@ -33,7 +33,7 @@
             <script>
                 document.write(new Date().getFullYear())
             </script>, Male Version Store. Feito por
-            <a class="playtech-ref-link" href="https://playtechsolutions.com.br/" target="_blank">Playtech Solutions</a>
+            <a class="playtech-ref-link footer-link" href="https://playtechsolutions.com.br/" target="_blank">Playtech Solutions</a>
         </div>
     </div>
 </footer>
