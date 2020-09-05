@@ -17,44 +17,48 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/catalogo', 'HomeController@catalog')->name('catalog');
 
-Auth::routes();
+/* 
+	The routes below are in progress
+*/
 
-Route::get('/dashboard', 'HomeController@index')->name('home')->middleware('auth');
+// Auth::routes();
 
-Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
-		return view('pages.table_list');
-	})->name('table');
+// Route::get('/dashboard', 'HomeController@index')->name('home')->middleware('auth');
 
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
+// Route::group(['middleware' => 'auth'], function () {
+// 	Route::get('table-list', function () {
+// 		return view('pages.table_list');
+// 	})->name('table');
 
-	Route::get('icons', function () {
-		return view('pages.icons');
-	})->name('icons');
+// 	Route::get('typography', function () {
+// 		return view('pages.typography');
+// 	})->name('typography');
 
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
+// 	Route::get('icons', function () {
+// 		return view('pages.icons');
+// 	})->name('icons');
 
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
+// 	Route::get('map', function () {
+// 		return view('pages.map');
+// 	})->name('map');
 
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
+// 	Route::get('notifications', function () {
+// 		return view('pages.notifications');
+// 	})->name('notifications');
 
-	Route::get('upgrade', function () {
-		return view('pages.upgrade');
-	})->name('upgrade');
-});
+// 	Route::get('rtl-support', function () {
+// 		return view('pages.language');
+// 	})->name('language');
 
-Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('perfil', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('perfil', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('perfil/senha', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-});
+// 	Route::get('upgrade', function () {
+// 		return view('pages.upgrade');
+// 	})->name('upgrade');
+// });
+
+// Route::group(['middleware' => 'auth'], function () {
+// 	Route::resource('user', 'UserController', ['except' => ['show']]);
+// 	Route::get('perfil', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+// 	Route::put('perfil', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+// 	Route::put('perfil/senha', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+// });
 
