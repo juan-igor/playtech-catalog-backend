@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
   <div class="container">
     <div class="navbar-wrapper">
-      <a class="navbar-brand" href="{{ route('welcome') }}">
+      <a class="navbar-brand" href="/">
         <img style="max-height: 50px; margin-top: -10px;" src="{{ asset('assets') }}/images/logo_full_rect_white.png">
       </a>
     </div>
@@ -15,12 +15,12 @@
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
         <li class="nav-item{{ $activePage == 'home' ? ' active' : '' }}">
-          <a href="{{ route('welcome') }}" class="nav-link">
+          <a href="/" class="nav-link">
             <i class="material-icons">home</i> Página Inicial
           </a>
         </li>
         <li class="nav-item{{ $activePage == 'catalog' ? ' active' : '' }}">
-          <a href="{{ route('catalog') }}" class="nav-link">
+          <a href="/catalogo" class="nav-link">
             <i class="material-icons">assignment</i> Catálogo de Produtos
           </a>
         </li>
