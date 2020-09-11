@@ -3,7 +3,7 @@
   <div class="container">
     <div class="navbar-wrapper">
       <a class="navbar-brand" href="/">
-        <img style="max-height: 50px; margin-top: -10px;" src="{{ asset('assets') }}/images/logo_full_rect_white.png">
+        <img style="max-height: 50px; margin-top: -10px;" src="/assets/images/logo_full_rect_white.png">
       </a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

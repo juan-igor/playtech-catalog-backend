@@ -11,7 +11,7 @@
     <div class="col">
       <div class="card mx-auto product-card">
         <div class="row justify-content-center align-items-center product-image-div">
-          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product1.jpg" alt="Imagem do Produto">
+          <img class="card-img-top product-image" src="/assets/images/products/product1.jpg" alt="Imagem do Produto">
         </div>
         <div class="card-body product-card-body">
           <h3 class="card-title">Short Moletom</h3>
@@ -29,7 +29,7 @@
     <div class="col">
       <div class="card mx-auto product-card">
         <div class="row justify-content-center align-items-center product-image-div">
-          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product2.jpg" alt="Imagem do Produto">
+          <img class="card-img-top product-image" src="/assets/images/products/product2.jpg" alt="Imagem do Produto">
         </div>
         <div class="card-body product-card-body">
           <h3 class="card-title">Short Moletom</h3>
@@ -47,7 +47,7 @@
     <div class="col">
       <div class="card mx-auto product-card">
         <div class="row justify-content-center align-items-center product-image-div">
-          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product3.jpg" alt="Imagem do Produto">
+          <img class="card-img-top product-image" src="/assets/images/products/product3.jpg" alt="Imagem do Produto">
         </div>
         <div class="card-body product-card-body">
           <h3 class="card-title">Short Moletom</h3>
@@ -65,7 +65,7 @@
     <div class="col">
       <div class="card mx-auto product-card">
         <div class="row justify-content-center align-items-center product-image-div">
-          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product4.jpg" alt="Imagem do Produto">
+          <img class="card-img-top product-image" src="/assets/images/products/product4.jpg" alt="Imagem do Produto">
         </div>
         <div class="card-body product-card-body">
           <h3 class="card-title">Short Moletom</h3>
@@ -83,7 +83,7 @@
     <div class="col">
       <div class="card mx-auto product-card">
         <div class="row justify-content-center align-items-center product-image-div">
-          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product5.jpg" alt="Imagem do Produto">
+          <img class="card-img-top product-image" src="/assets/images/products/product5.jpg" alt="Imagem do Produto">
         </div>
         <div class="card-body product-card-body">
           <h3 class="card-title">Short Moletom</h3>
@@ -101,7 +101,7 @@
     <div class="col">
       <div class="card mx-auto product-card">
         <div class="row justify-content-center align-items-center product-image-div">
-          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product6.jpg" alt="Imagem do Produto">
+          <img class="card-img-top product-image" src="/assets/images/products/product6.jpg" alt="Imagem do Produto">
         </div>
         <div class="card-body product-card-body">
           <h3 class="card-title">Short Moletom</h3>
@@ -119,7 +119,7 @@
     <div class="col">
       <div class="card mx-auto product-card">
         <div class="row justify-content-center align-items-center product-image-div">
-          <img class="card-img-top product-image" src="{{ asset('assets') }}/images/products/product7.jpg" alt="Imagem do Produto">
+          <img class="card-img-top product-image" src="/assets/images/products/product7.jpg" alt="Imagem do Produto">
         </div>
         <div class="card-body product-card-body">
           <h3 class="card-title">Blusas</h3>

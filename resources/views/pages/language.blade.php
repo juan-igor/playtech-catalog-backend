@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/material/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/material/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
       {{ __('Material Dashboard by Creative Tim') }}
@@ -18,10 +18,10 @@
   <link href="https://fonts.googleapis.com/css?family=Cairo&amp;subset=arabic" rel="stylesheet">
 
   <!-- CSS Files -->
-  <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-  <link href="{{ asset('material') }}/css/material-dashboard-rtl.css?v=1.1" rel="stylesheet" />
+  <link href="/material/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <link href="/material/css/material-dashboard-rtl.css?v=1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
+  <link href="/material/demo/demo.css" rel="stylesheet" />
   
 
   <!-- Style Just for persian demo purpose, don't include it in your project -->
@@ -44,7 +44,7 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="{{ asset('material') }}/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/material/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -623,7 +623,7 @@
               <div class="card card-profile">
                 <div class="card-avatar">
                   <a href="#pablo">
-                    <img class="img" src="{{ asset('material') }}/img/faces/marc.jpg" />
+                    <img class="img" src="/material/img/faces/marc.jpg" />
                   </a>
                 </div>
                 <div class="card-body">
@@ -678,22 +678,22 @@
       </div>
     </div>
     <!--   Core JS Files   -->
-    <script src="{{ asset('material') }}/js/core/jquery.min.js"></script>
-    <script src="{{ asset('material') }}/js/core/popper.min.js"></script>
-    <script src="{{ asset('material') }}/js/core/bootstrap-material-design.min.js"></script>
-    <script src="{{ asset('material') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/material/js/core/jquery.min.js"></script>
+    <script src="/material/js/core/popper.min.js"></script>
+    <script src="/material/js/core/bootstrap-material-design.min.js"></script>
+    <script src="/material/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     
     <!--  Google Maps Plugin    -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'"></script>
     <!-- Chartist JS -->
-    <script src="{{ asset('material') }}/js/plugins/chartist.min.js"></script>
+    <script src="/material/js/plugins/chartist.min.js"></script>
     <!--  Notifications Plugin    -->
-    <script src="{{ asset('material') }}/js/plugins/bootstrap-notify.js"></script>
+    <script src="/material/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset('material') }}/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+    <script src="/material/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-    <script src="{{ asset('material') }}/demo/demo.js"></script>
-    <script src="{{ asset('material') }}/js/settings.js"></script>
+    <script src="/material/demo/demo.js"></script>
+    <script src="/material/js/settings.js"></script>
 </body>
 
 </html>
