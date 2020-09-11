@@ -18432,7 +18432,7 @@ Copyright (c) 2015 Daniel Eden
   .navbar-toggler .icon-bar {
     display: block;
     position: relative;
-    background: #555 !important;
+    background: white !important;
     width: 24px;
     height: 2px;
     border-radius: 1px;
