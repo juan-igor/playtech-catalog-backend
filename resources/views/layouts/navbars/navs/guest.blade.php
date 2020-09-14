@@ -30,10 +30,10 @@
             <i class="material-icons">dashboard</i> Sistema
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a href="{{ route('home') }}" class="dropdown-item">
+            <a href="/sistema" class="dropdown-item">
               <i class="material-icons">home</i> Início
             </a>
-            <a href="{{ route('logout_web') }}" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            <a href="/logout" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
               <i class="material-icons">exit_to_app</i> Sair
             </a>
           </div>

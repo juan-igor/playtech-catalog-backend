@@ -40,7 +40,7 @@
 
 <body class="{{ $class ?? '' }}">
     @auth
-      <form id="logout-form" action="{{ route('logout_web') }}" method="POST" style="display: none;">
+      <form id="logout-form" action="/logout" method="POST" style="display: none;">
         @csrf
       </form>
     @endauth  
@@ -86,7 +86,7 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="/material/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
     <script>
-      var api_storage_url = "http://{{ $_SERVER['HTTP_HOST'] }}/api/storage/view/";
+      var api_storage_url = "/api/storage/view/";
 
       function formatProductSizesString(sizes_string){
         var sizes = sizes_string.split(',');

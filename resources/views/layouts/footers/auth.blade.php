@@ -3,13 +3,13 @@
     <nav id="footer-left" class="float-left">
       <ul class="footer-link-list">
         <li>
-          <a class="footer-link footer-link-black" href="{{ route('welcome') }}">
+          <a class="footer-link footer-link-black" href="/">
               <i class="fas fa-home"></i>&nbsp;
               Página Inicial
           </a>
         </li>
         <li>
-          <a class="footer-link footer-link-black" href="{{ route('home') }}">
+          <a class="footer-link footer-link-black" href="/sistema">
             <i class="material-icons">dashboard</i>&nbsp;
               Sistema
           </a>

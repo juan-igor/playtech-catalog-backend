@@ -13,7 +13,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-12 text-right">
-                    <a href="{{ route('user.add.view') }}" class="btn btn-sm btn-primary">
+                    <a href="/sistema/usuarios/criar" class="btn btn-sm btn-primary">
                       <i class="material-icons">person_add</i>&nbsp;
                       Adicionar Novo Usuário
                     </a>
@@ -50,7 +50,7 @@
                           {{ $user->created_at ?? 'Desconhecida' }}
                         </td>
                         <td class="td-actions text-right">
-                          <a rel="tooltip" class="btn btn-sm btn-info" href="{{ route('user.edit.view', ['id' => $user->id]) }}" target="_blank" data-original-title="" title="">
+                          <a rel="tooltip" class="btn btn-sm btn-info" href="{{ "/sistema/usuarios/editar/".$user->id }}" target="_blank" data-original-title="" title="">
                             <i class="material-icons">edit</i>
                             <div class="ripple-container"></div>
                           </a>

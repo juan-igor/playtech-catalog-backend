@@ -5,7 +5,7 @@
       Tip 2: you can also add an image using data-image tag
   -->
   <div class="logo">
-    <a href="{{ route('welcome') }}" class="simple-text logo-normal">
+    <a href="/" class="simple-text logo-normal">
       {{-- {{ __('Male Version Store') }} --}}
       <img src="/assets/images/logo_full.png" style="max-width: 100%; width: 100%;" >
     </a>
@@ -13,7 +13,7 @@
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href="/sistema">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Início') }}</p>
         </a>
@@ -28,13 +28,13 @@
         <div class="collapse{{ ($activePage == 'profile' || $activePage == 'user-management') ? ' show' : '' }}" id="usersDropdown">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('profile.edit') }}">
+              <a class="nav-link" href="/sistema/perfil">
                 <i class="material-icons">person</i>
                 <span class="sidebar-normal">{{ __('Meu Perfil') }} </span>
               </a>
             </li>
             <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('user.index') }}">
+              <a class="nav-link" href="/sistema/usuarios">
                 <i class="material-icons">groups</i>
                 <span class="sidebar-normal"> {{ __('Gerenciamento de Usuários') }} </span>
               </a>
@@ -52,13 +52,13 @@
         <div class="collapse{{ ($activePage == 'product.add' || $activePage == 'products') ? ' show' : '' }}" id="productsDropdown">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'products' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('products.view') }}">
+              <a class="nav-link" href="/sistema/produtos">
                 <i class="material-icons">format_list_bulleted</i>
                 <span class="sidebar-normal">{{ __('Listar') }} </span>
               </a>
             </li>
             <li class="nav-item{{ $activePage == 'product.add' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('add.product.view') }}">
+              <a class="nav-link" href="/sistema/produtos/adicionar">
                 <i class="material-icons">add</i>
                 <span class="sidebar-normal">{{ __('Adicionar') }} </span>
               </a>
@@ -78,12 +78,12 @@
             <p>{{ __('Typography') }}</p>
         </a>
       </li> --}}
-      <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
+      {{-- <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('notifications') }}">
           <i class="material-icons">notifications</i>
           <p>{{ __('Notifications') }}</p>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </div>
