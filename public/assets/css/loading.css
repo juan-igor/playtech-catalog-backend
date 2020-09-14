@@ -1,0 +1,71 @@
+@keyframes loading-bars-1 {
+  0% { top: -15.680000000000001px; height: 255.36px }
+  50% { top: 48.160000000000004px; height: 127.68px }
+  100% { top: 48.160000000000004px; height: 127.68px }
+}
+@keyframes loading-bars-2 {
+  0% { top: 0.28px; height: 223.44000000000003px }
+  50% { top: 48.160000000000004px; height: 127.68px }
+  100% { top: 48.160000000000004px; height: 127.68px }
+}
+@keyframes loading-bars-3 {
+  0% { top: 16.240000000000002px; height: 191.52px }
+  50% { top: 48.160000000000004px; height: 127.68px }
+  100% { top: 48.160000000000004px; height: 127.68px }
+}
+.loading-bars div { 
+    position: absolute; 
+    width: 29.120000000000005px 
+}
+.loading-bars div:nth-child(1) {
+  left: 41.440000000000005px;
+  /* background: #ffffff; */
+  animation: loading-bars-1 1.2987012987012987s cubic-bezier(0,0.5,0.5,1) infinite;
+  animation-delay: -0.25974025974025977s
+}
+.loading-bars div:nth-child(2) {
+  left: 97.44000000000001px;
+  /* background: #ffffff; */
+  animation: loading-bars-2 1.2987012987012987s cubic-bezier(0,0.5,0.5,1) infinite;
+  animation-delay: -0.12987012987012989s
+}
+.loading-bars div:nth-child(3) {
+  left: 153.44000000000003px;
+  /* background: #ffffff; */
+  animation: loading-bars-3 1.2987012987012987s cubic-bezier(0,0.5,0.5,1) infinite;
+  animation-delay: undefineds
+}
+.loading-bars.bk-black div:nth-child(1){
+    background: black !important;
+}
+.loading-bars.bk-black div:nth-child(2){
+    background: black !important;
+}
+.loading-bars.bk-black div:nth-child(3){
+    background: black !important;
+}
+.loading-bars.bk-white div:nth-child(1){
+    background: white !important;
+}
+.loading-bars.bk-white div:nth-child(2){
+    background: white !important;
+}
+.loading-bars.bk-white div:nth-child(3){
+    background: white !important;
+}
+.loading-spinner-pulse {
+  width: 224px;
+  height: 224px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+.loading-bars {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.loading-bars div { box-sizing: content-box; }
