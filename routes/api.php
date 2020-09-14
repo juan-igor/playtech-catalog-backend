@@ -24,8 +24,8 @@ Route::group([
 });
 
 // Routes without authentication
-Route::get('products/list', 'ProductController@list');
-Route::get('products/{id}', 'ProductController@show');
+Route::get('products/list', 'ProductController@list')->name('api.product.list');
+Route::get('products/{id}', 'ProductController@show')->name('api.product.view');
 
 // Routes with authentication
 Route::middleware('auth:api')->group(function() {

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\ErrorHandler\Exception\FlattenException;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,48 +19,39 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/catalogo', 'HomeController@catalog')->name('catalog');
 
-/* 
-	The routes below are in progress
-*/
-
 // Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login_form');
+Route::post('login', 'Auth\LoginController@login')->name('login_web');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout_web');
 
-// Route::get('/dashboard', 'HomeController@index')->name('home')->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('table-list', function () {
+		return view('pages.table_list');
+	})->name('table');
 
-// Route::group(['middleware' => 'auth'], function () {
-// 	Route::get('table-list', function () {
-// 		return view('pages.table_list');
-// 	})->name('table');
+	Route::get('typography', function () {
+		return view('pages.typography');
+	})->name('typography');
 
-// 	Route::get('typography', function () {
-// 		return view('pages.typography');
-// 	})->name('typography');
+	Route::get('notifications', function () {
+		return view('pages.notifications');
+	})->name('notifications');
+});
 
-// 	Route::get('icons', function () {
-// 		return view('pages.icons');
-// 	})->name('icons');
+Route::group(['middleware' => 'auth', 'prefix' => 'sistema'], function () {
+	Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 
-// 	Route::get('map', function () {
-// 		return view('pages.map');
-// 	})->name('map');
+	Route::get('usuarios', 'UserController@index')->name('user.index');
+	Route::get('usuarios/criar', 'UserController@add')->name('user.add.view');
+	Route::get('usuarios/editar/{id}', 'UserController@edit')->name('user.edit.view');
+	Route::post('usuarios/criar', 'UserController@create')->name('user.add');
+	Route::post('usuarios/editar/{id}', 'UserController@update')->name('user.edit');
+	Route::post('usuarios/deletar/{id}', 'UserController@delete')->name('user.delete');
 
-// 	Route::get('notifications', function () {
-// 		return view('pages.notifications');
-// 	})->name('notifications');
+	Route::get('perfil', 'ProfileController@edit')->name('profile.edit');
+	Route::put('perfil', 'ProfileController@update')->name('profile.update');
+	Route::put('perfil/senha', 'ProfileController@password')->name('profile.password');
 
-// 	Route::get('rtl-support', function () {
-// 		return view('pages.language');
-// 	})->name('language');
-
-// 	Route::get('upgrade', function () {
-// 		return view('pages.upgrade');
-// 	})->name('upgrade');
-// });
-
-// Route::group(['middleware' => 'auth'], function () {
-// 	Route::resource('user', 'UserController', ['except' => ['show']]);
-// 	Route::get('perfil', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-// 	Route::put('perfil', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-// 	Route::put('perfil/senha', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-// });
-
+	Route::get('produtos', 'HomeController@products')->name('products.view');
+	Route::get('produtos/adicionar', 'HomeController@addProduct')->name('add.product.view');
+});
