@@ -82,7 +82,7 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="/material/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
     <script>
-      var api_storage_url = '{{ route('welcome') }}/api/storage/view/';
+      var api_storage_url = "http://{{ $_SERVER['HTTP_HOST'] }}/api/storage/view/";
 
       $(document).ready(function(){
         @stack('documentOnReady')

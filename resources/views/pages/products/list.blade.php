@@ -58,7 +58,7 @@
         var tableBody = document.getElementById('product-list-tbody');
         var requisitionContent = null;
 
-        var ajaxRequisition = $.get('{{ route('api.product.list') }}', (data, status_string, jqxhr) => {
+        var ajaxRequisition = $.get("http://{{ $_SERVER['HTTP_HOST'] }}/api/products/list", (data, status_string, jqxhr) => {
           requisitionContent = data;
         }).done(function() {
           console.log('Requisição Bem Sucedida');
@@ -80,10 +80,10 @@
             var product_value = document.createElement('TD');
             var actions = document.createElement('TD');
 
-            actions.innerHTML = '<a rel="tooltip" style="margin-right: 5px;" class="btn btn-sm btn-info" href="{{ route('welcome') }}/produtos/editar/'+ info.id +'" target="_blank" data-original-title="" title=""><i class="material-icons">edit</i><div class="ripple-container"></div></a><a rel="tooltip" class="btn btn-sm btn-danger" href="#" data-original-title="" title=""><i class="material-icons">delete</i><div class="ripple-container"></div></a>'
+            actions.innerHTML = '<a rel="tooltip" style="margin-right: 5px;" class="btn btn-sm btn-info" href="'+ api_storage_url + info.id +'" target="_blank" data-original-title="" title=""><i class="material-icons">edit</i><div class="ripple-container"></div></a><a rel="tooltip" class="btn btn-sm btn-danger" href="#" data-original-title="" title=""><i class="material-icons">delete</i><div class="ripple-container"></div></a>'
             actions.classList.add('td-actions');
 
-            product_image.innerHTML = '<img src="{{ route('welcome') }}/api/storage/view/'+ info.storages[0].storage_id +'" style="max-width: 100px" />';
+            product_image.innerHTML = '<img src="'+ api_storage_url + info.storages[0].storage_id +'" style="max-width: 100px" />';
 
             product_id.appendChild(document.createTextNode(info.id));
             product_name.appendChild(document.createTextNode(info.name));

@@ -152,7 +152,7 @@
         var mainDiv = document.getElementById('catalog-div');
         var requisitionContent = null;
 
-        var ajaxRequisition = $.get('{{ route('api.product.list') }}', (data, status_string, jqxhr) => {
+        var ajaxRequisition = $.get("http://{{ $_SERVER['HTTP_HOST'] }}/api/products/list", (data, status_string, jqxhr) => {
           requisitionContent = data;
         }).done(function() {
           console.log('Requisição Bem Sucedida');
