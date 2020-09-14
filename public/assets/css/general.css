@@ -23,6 +23,14 @@
     transition: 0.4s;
 }
 
+.footer-link-black {
+    color: rgb(60, 72, 88) !important;
+}
+
+.footer-link-black::before {
+    background: rgb(60, 72, 88) !important;
+}
+
 .navbar-toggler-icon-home {
     background: white !important;
     background-color: white !important;

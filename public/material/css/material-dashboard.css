@@ -14681,7 +14681,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   top: 0;
   left: 0;
   background-size: cover;
-  background-position: center center;
+  background-position: left center;
+  background-repeat: no-repeat;
 }
 
 .sidebar .sidebar-background:after {
@@ -14898,7 +14899,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .main-panel>.content {
   margin-top: 70px;
   padding: 30px 15px;
-  min-height: calc(100vh - 123px);
+  min-height: calc(100vh - 157px);
 }
 
 .main-panel>.footer {
@@ -18429,10 +18430,18 @@ Copyright (c) 2015 Daniel Eden
   .close-layer.visible {
     opacity: 1;
   }
+
+  .navbar-toggler .icon-black {
+    background: #555 !important;
+  }
+
+  .navbar-toggler .icon-white {
+    background: white !important;
+  }
+
   .navbar-toggler .icon-bar {
     display: block;
     position: relative;
-    background: white !important;
     width: 24px;
     height: 2px;
     border-radius: 1px;
