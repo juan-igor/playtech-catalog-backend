@@ -11,11 +11,53 @@ class UserController extends Controller
     /**
      * Display a listing of the users
      *
-     * @param  \App\User  $model
      * @return \Illuminate\View\View
      */
-    public function index(User $model)
+    public function index()
     {
-        return view('users.index', ['users' => $model->paginate(15)]);
+        return view('pages.users.management', ['users' => User::paginate(10)]);
+    }
+
+    public function add()
+    {
+        return view('pages.users.add');
+    }
+
+    public function edit($id)
+    {
+        $user = User::where('id', $id);
+
+        if($user->exists()){
+            return view('pages.users.edit', ['user' => $user->first()]); 
+        } else {
+            return redirect()->route('user.index');
+        }
+    }
+
+    public function create(UserRequest $request)
+    {
+        return view('pages.users.management', ['users' => User::paginate(10)]);
+    }
+
+    public function update($id, UserRequest $request)
+    {
+        $user = User::where('id', $id);
+
+        if($user->exists()){
+            return view('pages.users.edit', ['user' => $user->first()]); 
+        } else {
+            return view('pages.users.management', ['users' => User::paginate(10)]);
+        }
+    }
+
+    public function delete($id)
+    {
+        $user = User::where('id', $id);
+
+        if($user->exists()){
+            return view('pages.users.management', ['users' => User::paginate(10)]); 
+        } else {
+            return view('pages.users.management', ['users' => User::paginate(10)]);
+        }
     }
 }

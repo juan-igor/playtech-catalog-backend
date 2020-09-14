@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Models\Product;
+
 class HomeController extends Controller
 {
     /**
@@ -31,6 +34,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $products = Product::count();
+        $users = User::count();
+
+        return view('dashboard', compact('products', 'users'));
+    }
+
+    public function products()
+    {
+        return view('pages.products.list');
+    }
+
+    public function addProduct()
+    {
+        return view('pages.products.add');
     }
 }
