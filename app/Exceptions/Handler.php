@@ -97,6 +97,10 @@ class Handler extends ExceptionHandler
         }
 
         if ($exception instanceof AuthenticationException) {
+            if(! $request->expectsJson()){
+                return redirect()->route('login_form');
+            }
+
             return response()->json([
                 'success' => false,
                 'error' => [
@@ -142,14 +146,28 @@ class Handler extends ExceptionHandler
             $message = Response::$statusTexts[$exception->getStatusCode()];
         }
 
+        $error_array = [
+            'exception_class' => $this->getExceptionClass($exception),
+            'http_code' => $exception->getStatusCode(),
+            'message' => $message,
+            'trace' => $this->getTrace($exception),
+        ];
+
+        if(! $request->expectsJson()){
+            switch($exception->getStatusCode()){
+                case 401: return response()->view('errors.401');
+                case 403: return response()->view('errors.403', compact('exception'));
+                case 404: return response()->view('errors.404');
+                case 419: return response()->view('errors.419');
+                case 429: return response()->view('errors.429');
+                case 500: return response()->view('errors.500', compact('error_array'));
+                case 503: return response()->view('errors.503', compact('exception'));
+            }
+        }
+
         return response()->json([
             'success' => false,
-            'error' => [
-                'exception_class' => $this->getExceptionClass($exception),
-                'http_code' => $exception->getStatusCode(),
-                'message' => $message,
-                'trace' => $this->getTrace($exception),
-            ],
+            'error' => $error_array,
 
         ], $exception->getStatusCode());
     }
