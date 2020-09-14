@@ -12,13 +12,14 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'type', 'available_size', 'value', 
+        'name', 'description', 'type', 'available_size', 'value', 
     ];
 
     protected $hidden = ['pivot'];
 
     const RULE_CREATE = [
         'name' => 'required|string',
+        'description' => 'required|string',
         'type' => 'required|string',
         'available_size' => 'required|array',
         'available_size.*' => 'string',
@@ -29,6 +30,7 @@ class Product extends Model
 
     const RULE_UPDATE = [
         'name' => 'string',
+        'description' => 'string',
         'type' => 'string',
         'available_size' => 'array',
         'available_size.*' => 'string',
