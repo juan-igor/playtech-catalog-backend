@@ -22,8 +22,6 @@
     <link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#232323">
     <link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
 
-    <meta name="keywords" content="male version store, playtech, playtech solutions, male version, mens wear">
-    <meta name="description" content="Male Version Store. O seu jeito de Vestir.">
 
     <title>{{ empty($title) ? "Male Version Store" : $title." - Male Version Store"}}</title>
     
@@ -39,12 +37,10 @@
 </head>
 
 <body class="{{ $class ?? '' }}">
-    @auth
-      <form id="logout-form" action="{{ route('logout_web') }}" method="POST" style="display: none;">
+    <form id="logout-form" action="{{ route('logout_web') }}" method="POST" style="display: none;">
         @csrf
-      </form>
-    @endauth  
-    @include('layouts.page_templates.guest')
+    </form>
+    @include('layouts.page_templates.auth')
 
     <!--   Core JS Files   -->
     <script src="/material/js/core/jquery.min.js"></script>
@@ -88,32 +84,13 @@
     <script>
       var api_storage_url = '{{ route('welcome') }}/api/storage/view/';
 
-      function formatProductSizesString(sizes_string){
-        var sizes = sizes_string.split(',');
-        var string_return = "Tamanhos ";
-
-        sizes.forEach((size, index) => {
-          string_return += size;
-
-          if(index != (sizes.length - 1)){
-            if(index < (sizes.length - 2)){
-              string_return += ", ";
-            } else {
-              string_return += " e ";
-            }
-          }
-        });
-
-        return string_return;
-      }
-
       $(document).ready(function(){
         @stack('documentOnReady')
       });
       $(window).resize(function(){
         @stack('windowOnResize')
       });
-    </script>
+      </script>
     @stack('js')
 </body>
 

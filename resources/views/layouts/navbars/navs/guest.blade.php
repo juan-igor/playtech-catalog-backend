@@ -8,9 +8,9 @@
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
       <span class="sr-only">Toggle navigation</span>
-      <span class="navbar-toggler-icon icon-bar navbar-toggler-icon-home"></span>
-      <span class="navbar-toggler-icon icon-bar navbar-toggler-icon-home"></span>
-      <span class="navbar-toggler-icon icon-bar navbar-toggler-icon-home"></span>
+      <span class="navbar-toggler-icon icon-bar icon-white"></span>
+      <span class="navbar-toggler-icon icon-bar icon-white"></span>
+      <span class="navbar-toggler-icon icon-bar icon-white"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
@@ -24,11 +24,21 @@
             <i class="material-icons">assignment</i> Catálogo de Produtos
           </a>
         </li>
-        {{-- <li class="nav-item{{ $activePage == 'login' ? ' active' : '' }}">
-          <a href="{{ route('login') }}" class="nav-link">
-            <i class="material-icons">fingerprint</i> Login
+        @auth
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">dashboard</i> Sistema
           </a>
-        </li> --}}
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a href="{{ route('home') }}" class="dropdown-item">
+              <i class="material-icons">home</i> Início
+            </a>
+            <a href="{{ route('logout_web') }}" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+              <i class="material-icons">exit_to_app</i> Sair
+            </a>
+          </div>
+        </li>
+        @endauth
       </ul>
     </div>
   </div>

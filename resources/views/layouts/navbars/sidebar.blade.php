@@ -1,12 +1,13 @@
-<div class="sidebar" data-color="orange" data-background-color="white" data-image="/material/img/sidebar-1.jpg">
+<div class="sidebar" data-color="danger" data-background-color="white" data-image="/assets/images/backgrounds/background3.jpg">
   <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
       Tip 2: you can also add an image using data-image tag
   -->
   <div class="logo">
-    <a href="https://creative-tim.com/" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
+    <a href="{{ route('welcome') }}" class="simple-text logo-normal">
+      {{-- {{ __('Male Version Store') }} --}}
+      <img src="/assets/images/logo_full.png" style="max-width: 100%; width: 100%;" >
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -14,34 +15,58 @@
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
-            <p>{{ __('Dashboard') }}</p>
+            <p>{{ __('Início') }}</p>
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-          <i><img style="width:25px" src="/material/img/laravel.svg"></i>
-          <p>{{ __('Laravel Examples') }}
+        <a class="nav-link" data-toggle="collapse" href="#usersDropdown" aria-expanded="{{ ($activePage == 'profile' || $activePage == 'user-management') ? true : false }}">
+          <i class="material-icons">groups</i>
+          <p>{{ __('Usuários') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelExample">
+        <div class="collapse{{ ($activePage == 'profile' || $activePage == 'user-management') ? ' show' : '' }}" id="usersDropdown">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('profile.edit') }}">
-                <span class="sidebar-mini"> UP </span>
-                <span class="sidebar-normal">{{ __('User profile') }} </span>
+                <i class="material-icons">person</i>
+                <span class="sidebar-normal">{{ __('Meu Perfil') }} </span>
               </a>
             </li>
             <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('user.index') }}">
-                <span class="sidebar-mini"> UM </span>
-                <span class="sidebar-normal"> {{ __('User Management') }} </span>
+                <i class="material-icons">groups</i>
+                <span class="sidebar-normal"> {{ __('Gerenciamento de Usuários') }} </span>
               </a>
             </li>
           </ul>
         </div>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+      <li class="nav-item {{ ($activePage == 'product.add' || $activePage == 'products') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#productsDropdown" aria-expanded="{{ ($activePage == 'product.add' || $activePage == 'products') ? true : false }}">
+          <i class="material-icons">shopping_cart</i>
+          <p>{{ __('Produtos') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse{{ ($activePage == 'product.add' || $activePage == 'products') ? ' show' : '' }}" id="productsDropdown">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'products' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('products.view') }}">
+                <i class="material-icons">format_list_bulleted</i>
+                <span class="sidebar-normal">{{ __('Listar') }} </span>
+              </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'product.add' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('add.product.view') }}">
+                <i class="material-icons">add</i>
+                <span class="sidebar-normal">{{ __('Adicionar') }} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      {{-- <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>
             <p>{{ __('Table List') }}</p>
@@ -52,35 +77,11 @@
           <i class="material-icons">library_books</i>
             <p>{{ __('Typography') }}</p>
         </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('icons') }}">
-          <i class="material-icons">bubble_chart</i>
-          <p>{{ __('Icons') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'map' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('map') }}">
-          <i class="material-icons">location_ons</i>
-            <p>{{ __('Maps') }}</p>
-        </a>
-      </li>
+      </li> --}}
       <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('notifications') }}">
           <i class="material-icons">notifications</i>
           <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('language') }}">
-          <i class="material-icons">language</i>
-          <p>{{ __('RTL Support') }}</p>
-        </a>
-      </li>
-      <li class="nav-item active-pro{{ $activePage == 'upgrade' ? ' active' : '' }} bg-danger">
-        <a class="nav-link text-white" href="{{ route('upgrade') }}">
-          <i class="material-icons">unarchive</i>
-          <p>{{ __('Upgrade to PRO') }}</p>
         </a>
       </li>
     </ul>

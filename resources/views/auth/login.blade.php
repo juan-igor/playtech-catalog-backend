@@ -7,7 +7,7 @@
       <h3>Logue no sistema para adicionar novas peças. </h3>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-      <form class="form" method="POST" action="{{ route('login') }}">
+      <form class="form" method="POST" action="{{ route('login_web') }}">
         @csrf
 
         <div class="card card-login card-hidden mb-3">
@@ -45,14 +45,14 @@
                 </div>
               @endif
             </div>
-            <div class="form-check mr-auto ml-3 mt-3">
+            {{-- <div class="form-check mr-auto ml-3 mt-3">
               <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Mantenha-me Conectado
                 <span class="form-check-sign">
                   <span class="check"></span>
                 </span>
               </label>
-            </div>
+            </div> --}}
           </div>
           <div class="card-footer justify-content-center">
             <button type="submit" class="btn btn-primary btn-link btn-lg">Entrar</button>
