@@ -30,7 +30,7 @@ class UserController extends Controller
         if($user->exists()){
             return view('pages.users.edit', ['user' => $user->first()]); 
         } else {
-            return redirect('/sistema/usuarios');
+            return redirect()->away('/sistema/usuarios');
         }
     }
 

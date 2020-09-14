@@ -98,7 +98,7 @@ class Handler extends ExceptionHandler
 
         if ($exception instanceof AuthenticationException) {
             if(! $request->expectsJson()){
-                return redirect('/login');
+                return redirect()->away('/login');
             }
 
             return response()->json([
