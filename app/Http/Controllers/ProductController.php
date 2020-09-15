@@ -116,10 +116,11 @@ class ProductController extends Controller
             $infos = $request->all();
             if(!empty($infos['available_size'])) $infos['available_size'] = $this->getStringFromArray($infos['available_size']);
 
-            $product = Product::find($id)->update($infos);
+            $product = Product::find($id);
             if(!empty($infos['images'])) $product->storages()->sync($infos['images']);
+            $updated = $product->update($infos);
 
-            if ($product) {
+            if ($updated) {
                 DB::commit();
 
                 return response()->json([
@@ -170,7 +171,7 @@ class ProductController extends Controller
                     $storage->delete();
                 }
 
-                $product = $product->delete();
+                $deleted = $product->delete();
             } else {
                 return response()->json([
                     'success' => false,
@@ -178,7 +179,7 @@ class ProductController extends Controller
                 ]);
             }
 
-            if ($product) {
+            if ($deleted) {
                 DB::commit();
 
                 return response()->json([
